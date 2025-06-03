@@ -19,31 +19,28 @@ Classification involves predicting discrete labels (e.g., spam vs. not spam).
 
 ### 📌 Error Rate
 
-\[
-\text{Error rate} = \frac{\text{Number of incorrect predictions}}{\text{Total number of predictions}}
-\]
+**Error rate** = Number of incorrect predictions / Total number of predictions
 
-- If 20 out of 100 predictions are wrong, the error rate is 20%.
-- The complement is **accuracy**:
+If 20 out of 100 predictions are wrong, the error rate is 0.20 (or 20%).
 
-\[
-\text{Accuracy} = \frac{\text{Number of correct predictions}}{\text{Total predictions}} = 1 - \text{Error rate}
-\]
+**Accuracy** = Number of correct predictions / Total number of predictions
+
+Or equivalently:
+
+**Accuracy** = 1 - Error rate
 
 ### 📌 0-1 Loss
 
 This loss assigns:
-- `0` for a correct prediction
-- `1` for an incorrect prediction
+- 0 for a correct prediction
+- 1 for an incorrect prediction
 
-\[
-\text{Expected 0-1 loss} = \text{Average error rate}
-\]
+**Expected 0-1 loss** is simply the average error rate over all predictions.
 
 ### ❗ Problem with 0-1 Loss
 
-- It is **not differentiable**, making it unsuitable for optimization algorithms like gradient descent.
-- Instead, we often use differentiable alternatives like **log-loss** or **cross-entropy** in probabilistic models.
+0-1 loss is **not differentiable**, so it's not usable with gradient-based optimization (like gradient descent).  
+Instead, we often use **log-loss** or **cross-entropy** when working with probabilistic models.
 
 ---
 
@@ -51,35 +48,32 @@ This loss assigns:
 
 Regression is about predicting continuous numerical values.
 
-We evaluate how close the predicted value \( \hat{Y}_i \) is to the true value \( Y_i \).
+We compare the predicted value (Ŷᵢ) to the actual value (Yᵢ) using loss functions.
 
 ### 📌 Mean Squared Loss (MSE)
 
-\[
-L = \frac{1}{N} \sum_{i=1}^{N} \left( \frac{Y_i - \hat{Y}_i}{Y_i} \right)^2
-\]
+**MSE** = (1 / N) * Σ [ (Yᵢ - Ŷᵢ) / Yᵢ ]²
 
-- Squares the difference to emphasize larger errors.
-- Smooth and differentiable—good for training.
+- N is the total number of examples.
+- Squares the error to penalize larger deviations more heavily.
+- Smooth and differentiable, so it's useful for optimization.
 
 ### 📌 L1 Loss (Mean Absolute Error)
 
-\[
-L = \frac{1}{N} \sum_{i=1}^{N} \left| \frac{Y_i - \hat{Y}_i}{Y_i} \right|
-\]
+**L1 Loss** = (1 / N) * Σ |(Yᵢ - Ŷᵢ) / Yᵢ|
 
-- Takes the absolute value of the difference.
-- More robust to outliers compared to squared loss.
+- Uses absolute differences instead of squared differences.
+- More robust to outliers than MSE.
 
-> 🔍 Both formulas use **relative error**, dividing by \( Y_i \), to account for the scale of the true value.
+Note: Both use **relative error** (dividing by Yᵢ) to normalize the scale of errors.
 
 ---
 
 ## 4. Summary Table
 
-| Task           | Measure    | Formula                                                                 | Why It Matters |
-|----------------|------------|-------------------------------------------------------------------------|----------------|
-| Classification | Error Rate | \( \frac{N_{\text{wrong}}}{N} \)                                        | Simple, intuitive metric for classification success |
-| Classification | 0-1 Loss   | 0 if correct, 1 if wrong                                                | Theoretical foundation for accuracy; not usable for gradient-based training |
-| Regression     | MSE        | \( \frac{1}{N} \sum \left( \frac{Y - \hat{Y}}{Y} \right)^2 \)            | Penalizes larger errors more; smooth for optimization |
-| Regression     | L1 Loss    | \( \frac{1}{N} \sum \left| \frac{Y - \hat{Y}}{Y} \right| \)              | Robust to outliers; gives a clearer view of typical error |
+| Task           | Measure    | Formula (Plain Text)                                              | Why It Matters                                      |
+|----------------|------------|--------------------------------------------------------------------|-----------------------------------------------------|
+| Classification | Error Rate | Error rate = Incorrect predictions / Total predictions            | Simple, intuitive metric for classification success |
+| Classification | 0-1 Loss   | 0 if prediction is correct; 1 if incorrect                         | Theoretical foundation; not usable for training     |
+| Regression     | MSE        | (1 / N) * Σ [ (Yᵢ - Ŷᵢ) / Yᵢ ]²                                    | Penalizes large errors; smooth for optimization     |
+| Regression     | L1 Loss    | (1 / N) * Σ |(Yᵢ - Ŷᵢ) / Yᵢ|                                      | Robust to outliers; better sense of typical error   |
