@@ -1,9 +1,5 @@
+# Understanding the Math Behind Performance Measures 
 
-# Understanding the Math Behind Performance Measures (For Beginners)
-
-This guide explains common performance metrics in machine learning — especially for classification and regression — using simple math and clear reasoning, ideal for high school-level understanding.
-
----
 
 ## 🔷 1. Error Rate (Classification)
 
