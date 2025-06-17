@@ -82,3 +82,68 @@ The machine **interacts with an environment**, takes actions, and learns from th
 | Supervised Learning     | Inputs + Correct Outputs | Predict numbers or categories       | Studying with an answer key         |
 | Unsupervised Learning   | Inputs only              | Find structure or useful features   | Grouping photos by similarity       |
 | Reinforcement Learning  | Inputs + Feedback        | Learn actions from rewards          | Training a dog with treats          |
+
+---
+
+## 🧠 Overview
+
+Machine learning in **tech** (e.g., Google, Amazon) and **finance** (e.g., banks, hedge funds) uses similar tools but faces very different data challenges and business goals.
+
+---
+
+## 🔍 Comparison Table
+
+| **Task**                        | **ML in Tech**                              | **ML in Finance**                             |
+|---------------------------------|---------------------------------------------|------------------------------------------------|
+| **Big Data?**                   | typically yes                               | typically no                                  |
+| **Stationary data?**           | typically yes                               | most often no                                 |
+| **Signal-to-noise ratio**      | typically low (lots of noise)               | typically high (hard to find useful signal)   |
+| **Action (RL) tasks**          | Low complexity and uncertainty              | High complexity and uncertainty               |
+| **Interpretability of results**| Not important or main focus                 | Very important or even required               |
+
+---
+
+## 🧾 Explanation of Each Point
+
+### 📦 Big Data
+- **Tech** companies usually collect **huge amounts** of user data (clicks, messages, searches).
+- **Finance** often works with **smaller datasets**, like trades, credit scores, or loan history.
+
+---
+
+### 📈 Stationary Data
+- "Stationary" means the data behaves consistently over time.
+- In **tech**, user behavior is often stable (e.g., similar watching habits).
+- In **finance**, markets are unpredictable and **constantly changing** due to external events.
+
+---
+
+### 📊 Signal-to-Noise Ratio
+- **Signal** = meaningful pattern. **Noise** = randomness.
+- In **tech**, there's noise but lots of chances to learn patterns.
+- In **finance**, useful signals are **buried in randomness** — hard to find and exploit.
+
+---
+
+### 🎮 Action (Reinforcement Learning) Tasks
+- **Tech** RL tasks are often simple: choose an ad, recommend a video.
+- **Finance** RL tasks are complex: pick trades, manage portfolios, react to markets.
+
+---
+
+### 🧠 Interpretability of Results
+- In **tech**, accuracy is often more important than understanding why the model works.
+- In **finance**, models must be **transparent**:
+  - Regulators, executives, and customers often require clear explanations.
+
+---
+
+## 🧠 Summary Table
+
+| Area                | ML in Tech                           | ML in Finance                             |
+|---------------------|---------------------------------------|--------------------------------------------|
+| Size of Data        | Huge                                  | Smaller, specialized                       |
+| Data Stability      | Usually stable                        | Frequently changing                        |
+| Noise Level         | High                                  | Very high                                  |
+| RL Task Complexity  | Low dimensional, low uncertainty      | High dimensional, high uncertainty         |
+| Need for Clarity    | Not a major focus                     | Crucial and often required                 |
